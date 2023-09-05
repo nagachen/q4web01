@@ -22,7 +22,8 @@
         }
         function find($arg){
             $sql="select * from $this->table ";
-            $sql = $this->sql_all($sql,$arg);
+            $sql = $this->sql_one($sql,$arg);
+            
             return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         }
 
@@ -131,15 +132,15 @@
             $target=(is_null($target))?$this->table:$target;
             $html ='';
             if($this->links['now']-1 >= 1){
-                $prev=$this->links-1;
+                $prev=$this->links['now']-1;
                 $html .= "<a href='?do=$target&p=$prev'>&lt;</a>";
             }
-            for($i=1;$i<$this->links['pages'];$i++){
+            for($i=1;$i<=$this->links['pages'];$i++){
                 $fontSize=($i==$this->links['now'])?'24px':'16px';
-                $html .= "<a href='?do=$target&p=$i'>$i</a>";
+                $html .= "<a href='?do=$target&p=$i' style='font-size:$fontSize'>$i</a>";
             }
             if($this->links['now']+1 <= $this->links['pages']){
-                $next=$this->links+1;
+                $next=$this->links['now']+1;
                 $html .= "<a href='?do=$target&p=$next'>&gt;</a>";
             }
             return $html;

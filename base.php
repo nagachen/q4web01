@@ -2,6 +2,8 @@
 session_start();
 date_default_timezone_set('Asia/Taipei');
 include_once __DIR__ . "/controller/Type.php";
+include_once __DIR__ . "/controller/Good.php";
+
 
 function dd($array){
     echo "<pre>";
@@ -14,4 +16,6 @@ function to($url){
 }
 
 $Type=new Type;
+$Good=new Good;
+
 ?>

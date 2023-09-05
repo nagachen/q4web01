@@ -1,4 +1,4 @@
-<?php include_once "./base.php";?>
+<?php include_once "./base.php"; ?>
 
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,31 +19,34 @@
                 <div id="top" style="display:flex;flex-wrap:wrap">
                         <div style="width:50%">
                                 <a href="index.php">
-                                        <img src="./icon/0416.jpg"style="width:100%">
+                                        <img src="./icon/0416.jpg" style="width:100%">
                                 </a>
                         </div>
 
                         <div style="width:50%;float:right">
-                        <div style="float:right">
-                        <a href="?">回首頁</a> |
-                                <a href="?do=news">最新消息</a> |
-                                <a href="?do=look">購物流程</a> |
-                                <a href="?do=buycart">購物車</a> |
-                                <a href="?do=login">會員登入</a> |
-                                <a href="?do=admin">管理登入</a>
-                        </div>
-                                
+                                <div style="float:right">
+                                        <a href="?">回首頁</a> |
+                                        <a href="?do=news">最新消息</a> |
+                                        <a href="?do=look">購物流程</a> |
+                                        <a href="?do=buycart">購物車</a> |
+                                        <a href="?do=login">會員登入</a> |
+                                        <a href="?do=admin">管理登入</a>
+                                </div>
+
                         </div>
                         <div>
-                                情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
-
+                                <marquee>
+                                        年終特賣會開跑了 &nbsp;&nbsp;&nbsp; 即日期至年底，凡會員購物滿仟送佰，買越多送越多~
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 情人節特惠活動 &nbsp;&nbsp;&nbsp;&nbsp;
+                                        為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
+                                </marquee>
                         </div>
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
-                        <?php
-                                $Type->show();
-                        ?>
+                                <?php
+                                $Type->show_nav();
+                                ?>
                         </div>
                         <span>
                                 <div>進站總人數</div>
@@ -52,9 +55,26 @@
                         </span>
                 </div>
                 <div id="right">
+                        <?php
+                        $do = $_GET['do'] ?? 'good';
+                        $table = ucfirst($do);
+                       
+                        $file = "./view/front/" . $do . ".php";
+                      
+                        if (isset($$table)) {
+                                $$table->show();
+                        } elseif (file_exists($file)) {
+                                include $file;
+                        } else {
+                                include "./view/front/good.php";
+                        }
+                        ?>
                 </div>
-                <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
-                        頁尾版權 : </div>
+                <div id="bottom" style="position:relative;line-height:70px;background:url(icon/bot.png); color:#FFF;"
+                        class="ct">
+                        <img src="./icon/bot" alt="">
+                        <div style="position:absolute;left:50%;">Copyright 2023頁尾版權宣告 </div>
+                </div>
         </div>
 
 </body>
@@ -62,9 +82,10 @@
 </html>
 
 <script>
-$(".big").click(function(){
-        console.log("in");
-        $(this).find('.mid').toggle();
-})
+        $(".big").hover(function () {
+                $(this).find('.mid').show();
+        }, function () {
+                $(this).find('.mid').hide();
+        })
 
 </script>
