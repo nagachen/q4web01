@@ -6,7 +6,7 @@
         protected $links;
         
         function __construct($table){
-            $this->dsn= "mysql:host=mysql;chartset=utf8;dbname=db04";
+            $this->dsn= "mysql:host=localhost;charset=utf8;dbname=db04";
             $this->pdo=new pdo($this->dsn,'root','');
             $this->table=$table;
         }
@@ -17,7 +17,9 @@
             $sql = $this->sql_all($sql,...$arg);
             return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }
-
+        function q($sql){
+            return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }
         function find($arg){
             $sql="select * from $this->table ";
             $sql = $this->sql_all($sql,$arg);
@@ -27,7 +29,7 @@
         function count(...$arg){
             $sql="select count(*) from $this->table ";
             $sql = $this->sql_all($sql,...$arg);
-            return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $this->pdo->query($sql)->fetchColumn();
         }
         
         function del($arg){
@@ -49,7 +51,7 @@
             }
             return $this->pdo->exec($sql);
         }
-
+        
         function sum($col,...$arg){
             return $this->math("sum",$col,...$arg);
         }
