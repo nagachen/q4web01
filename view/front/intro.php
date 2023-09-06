@@ -2,7 +2,7 @@
 <?php
 $row=$Good->find($_GET['id']);   
 ?>
-<div style="display:flex;margin:3px;">
+<div style="display:flex;margin:3px;flex-wrap:wrap">
                     <div style="width:40%;" class="pp">
                         <img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;">
                     </div>

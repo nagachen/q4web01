@@ -17,7 +17,7 @@ class Good extends DB
                 ?>
                 <div style="display:flex;margin:3px;">
                     <div style="width:40%;" class="pp">
-                        <img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;">
+                    <a href="?do=intro&id=<?= $row['id']; ?>"><img src="./icon/0402.jpg" alt=""><img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;"></a>
                     </div>
                     <div style="flex-direction:column;width:58%">
                         <div class="tt ct">

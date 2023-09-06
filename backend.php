@@ -24,10 +24,24 @@
             	            	<a href="?do=mem">會員管理</a>
             	            	<a href="?do=bot">頁尾版權管理</a>
             	            	<a href="?do=news">最新消息管理</a>
-            	        	<a href="?do=logout" style="color:#f00;">登出</a>
+            	        	<a href="./api/logout.php?table=Admin" style="color:#f00;">登出</a>
                     </div>
                     </div>
         <div id="right">
+		<?php
+                        $do = $_GET['do'] ?? 'main';
+                        $table = ucfirst($do);
+                       
+                        $file = "./view/backend/" . $do . ".php";
+                      
+                        if (file_exists($file)) {
+                                include $file;
+                        } elseif (isset($$table)) {
+                                $$table->show();
+                        } else {
+                                include "./view/backend/main.php";
+                        }
+                        ?>
         	        </div>
         <div id="bottom" style="line-height:70px; color:#FFF; background:url(icon/bot.png);" class="ct">
         	頁尾版權 :        </div>

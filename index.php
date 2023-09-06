@@ -29,7 +29,12 @@
                                         <a href="?do=news">最新消息</a> |
                                         <a href="?do=look">購物流程</a> |
                                         <a href="?do=buycart">購物車</a> |
-                                        <a href="?do=login">會員登入</a> |
+                                        <?php
+                                        if (isset($_SESSION['User'])) {
+                                                echo "<a href='./api/logout.php?table=User'>會員登出</a> |";
+                                        } else {
+                                                echo "<a href='?do=login'>會員登入</a> |";
+                                        } ?>
                                         <a href="?do=admin">管理登入</a>
                                 </div>
 
@@ -58,13 +63,13 @@
                         <?php
                         $do = $_GET['do'] ?? 'good';
                         $table = ucfirst($do);
-                       
+
                         $file = "./view/front/" . $do . ".php";
-                      
-                        if (isset($$table)) {
-                                $$table->show();
-                        } elseif (file_exists($file)) {
+
+                        if (file_exists($file)) {
                                 include $file;
+                        } elseif (isset($$table)) {
+                                $$table->show();
                         } else {
                                 include "./view/front/good.php";
                         }

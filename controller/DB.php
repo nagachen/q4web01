@@ -30,6 +30,7 @@
         function count(...$arg){
             $sql="select count(*) from $this->table ";
             $sql = $this->sql_all($sql,...$arg);
+            
             return $this->pdo->query($sql)->fetchColumn();
         }
         
