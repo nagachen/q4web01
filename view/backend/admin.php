@@ -24,7 +24,7 @@
                     } else {
                         ?>
                         <input type="button" value="修改" onclick="location.href='?do=updateAdmin&id=<?=$row['id'];?>'">
-                        <input type="button" value="刪除" onclick="location.href='./api/admin_del.php'">
+                        <input type="button" value="刪除" onclick="location.href='./api/admin_del.php?id=<?=$row['id'];?>'">
 
                         <?php
                     }
