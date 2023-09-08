@@ -28,6 +28,10 @@ $row=$Good->find($_GET['id']);
                         </div>
                     </div>
                     <div>
-                        購買數量: <input type="number" name="count" id="count"><img src="./icon/0402.jpg" alt="" onclick="buy()">
+                      <form action="./api/cart.php" method="post">購買數量: 
+                        <input type="number" name="count" id="count">
+                        <input type="hidden" name="id" value="<?=$_GET['id'];?>">
+                      <button type=submit style="border:none"><img src="./icon/0402.jpg" alt="" ></button>
+                    </form>
                     </div>
                 </div>

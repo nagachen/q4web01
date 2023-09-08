@@ -6,6 +6,8 @@ include_once __DIR__ . "/controller/Good.php";
 include_once __DIR__ . "/controller/Admin.php";
 include_once __DIR__ . "/controller/User.php";
 include_once __DIR__ . "/controller/Bottom.php";
+include_once __DIR__ . "/controller/Order.php";
+
 
 
 
@@ -25,5 +27,7 @@ $Good=new Good;
 $Admin=new Admin;
 $User=new User;
 $Bottom=new Bottom;
+$Order=new Order;
+
 
 ?>

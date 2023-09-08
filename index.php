@@ -28,7 +28,7 @@
                                         <a href="?">回首頁</a> |
                                         <a href="?do=news">最新消息</a> |
                                         <a href="?do=look">購物流程</a> |
-                                        <a href="?do=buycart">購物車</a> |
+                                        <a href="?do=cart">購物車</a> |
                                         <?php
                                         if (isset($_SESSION['User'])) {
                                                 echo "<a href='./api/logout.php?table=User'>會員登出</a> |";

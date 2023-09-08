@@ -1,5 +1,5 @@
 <h3>第一次購物</h3>
-<a href='./view/backend/add_user.php'><img src="./icon/0413.jpg" alt=""></a>
+<a href='?do=add_user'><img src="./icon/0413.jpg" alt=""></a>
 <h3>會員登入</h3>
 <form action="#" method="post">
     <div class="ct">
@@ -39,7 +39,7 @@ function ok(){
     $.post("./api/admin.php",{acc,pw,table:'User'},(res)=>{
         if(res>0){
             
-         location.href="index.php"
+         location.href="?do=cart"
         }
     })
    }else{

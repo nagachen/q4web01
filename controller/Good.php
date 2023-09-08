@@ -17,7 +17,8 @@ class Good extends DB
                 ?>
                 <div style="display:flex;margin:3px;">
                     <div style="width:40%;" class="pp">
-                    <a href="?do=intro&id=<?= $row['id']; ?>"><img src="./icon/0402.jpg" alt=""><img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;"></a>
+                        <a href="?do=intro&id=<?= $row['id']; ?>"><img src="./icon/0402.jpg" alt=""><img
+                                src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;"></a>
                     </div>
                     <div style="flex-direction:column;width:58%">
                         <div class="tt ct">
@@ -27,7 +28,8 @@ class Good extends DB
                             <div>價錢:
                                 <?= $row['price']; ?>
 
-                                <div style="float:right"><a href="?do=intro&id=<?= $row['id']; ?>"><img src="./icon/0402.jpg" alt=""></a>
+                                <div style="float:right"><a href="?do=intro&id=<?= $row['id']; ?>"><img src="./icon/0402.jpg"
+                                            alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +57,7 @@ class Good extends DB
                 <div style="display:flex;margin:3px;">
                     <div style="width:40%;" class="pp">
                         <a href="?do=intro&id=<?= $row['id']; ?>">
-                            <img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;"></a>F
+                            <img src="./icon/<?= $row['img'] ?>.jpg" width="80%" alt="" style="padding:15px;"></a>
                     </div>
                     <div style="flex-direction:column;width:58%">
                         <div class="tt ct">
@@ -64,17 +66,19 @@ class Good extends DB
                         <div class="pp">
                             <div>價錢:
                                 <?= $row['price']; ?>
-
-                                <div style="float:right"><img src="./icon/0402.jpg" alt=""></div>
+                                <a href="?do=intro&id=<?= $row['id']; ?>">
+                                    <div style="float:right"><img src="./icon/0402.jpg" alt="">
+                                </a>
                             </div>
                         </div>
-                        <div class="pp">規格:
-                            <?= $row['spec']; ?>
-                        </div>
-                        <div class="pp">簡介:
-                            <?= $row['intro']; ?>
-                        </div>
                     </div>
+                    <div class="pp">規格:
+                        <?= $row['spec']; ?>
+                    </div>
+                    <div class="pp">簡介:
+                        <?= $row['intro']; ?>
+                    </div>
+                </div>
                 </div>
                 <?php
             }
