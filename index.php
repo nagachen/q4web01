@@ -61,17 +61,17 @@
                 </div>
                 <div id="right">
                         <?php
-                        $do = $_GET['do'] ?? 'good';
+                        $do = $_GET['do'] ?? 'main';
                         $table = ucfirst($do);
 
                         $file = "./view/front/" . $do . ".php";
 
-                        if (file_exists($file)) {
+                        if (file_exists($file) ) {
                                 include $file;
                         } elseif (isset($$table)) {
                                 $$table->show();
                         } else {
-                                include "./view/front/good.php";
+                                include "./view/front/main.php";
                         }
                         ?>
                 </div>
